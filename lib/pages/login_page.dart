@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_development/bg_img.dart';
 import 'package:flutter_development/pages/home_page.dart';
+import 'package:flutter_development/utils/Constants.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -54,7 +55,8 @@ class _LoginPageState extends State<LoginPage> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: RaisedButton(onPressed: (){
-                          Navigator.pushNamed(context,"/home");
+                          Constants.prefs?.setBool("loggedIn", true);
+                          Navigator.pushReplacementNamed(context,"/home");
 
                         },
                           child: Text("Sign In"),
